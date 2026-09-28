@@ -7,8 +7,9 @@
     "url": "https://nicky.me"
   },
   "homepage": "https://pay.nicky.me",
-  "repository": "https://github.com/NickyVault/Nicky",
+  "repository": "https://github.com/NickyVault/nicky-claude-plugin",
   "license": "MIT",
+  "privacyPolicyUrl": "https://nicky.me/archive/privacy-policy/",
   "keywords": [
     "nicky",
     "payments",
