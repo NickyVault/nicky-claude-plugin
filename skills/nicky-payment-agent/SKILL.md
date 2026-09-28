@@ -147,11 +147,13 @@ public tools are exposed alongside `SearchNicks` (a public user-search tool).
   Tools: `GetProfile`, `AgreePrivacyPolicy`, `UpdateProfile`, `GetAllNicks`, `AddNicks`, `GetBalances`,
   `GetAcceptedAssets`, `GetUserAssetConnections`, `GetDepositAddress`, `GetConversionQuote`,
   `GetUnusedConversionQuote`, `CreatePaymentRequest`, `GetPaymentRequests`, `GetPaymentRequestById`,
-  `GetPaymentRequestByShortId`, `CancelPaymentRequest`, `FinishPaymentRequest`, `GetPaymentReports`,
-  `GetPaymentReportById`, `GetPaymentReportsByBillShortId`, `GetCreditBalance`,
+  `GetPaymentRequestByShortId`, `CancelPaymentRequest`, `FinishPaymentRequest`, `GetPaymentOrders`,
+  `GetPaymentOrderById`, `GetPaymentOrdersByBillShortId`, `GetCreditBalance`,
   `GetCreditBalanceForSubAccount`, `ListCreditTransfers`, `TransferCredits`, `GetAllBillingGroups`,
   `ListSubAccounts`, `UnlinkSubAccount`, `CreateSubAccount`, `CreateWebHook`, `ListWebHooks`,
-  `DeleteWebHook`, `Echo`, plus all of the public tools above.
+  `DeleteWebHook`, `Echo`, plus all of the public tools above. `GetPaymentReports` also exists as a
+  deprecated alias of `GetPaymentOrders` — kept for backward compatibility only; use
+  `GetPaymentOrders` for new integrations.
 - **Server card:** https://api-public.pay.nicky.me/.well-known/mcp/server-card.json
 
 **Available MCP tools (public):**
