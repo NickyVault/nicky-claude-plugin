@@ -1,0 +1,19 @@
+{
+  "name": "nicky",
+  "description": "Nicky non-custodial crypto payment orchestration — discover and pay Nicky payment requests, and manage a Nicky account, directly from Claude via the public and private Nicky MCP servers.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Nicky",
+    "url": "https://nicky.me"
+  },
+  "homepage": "https://pay.nicky.me",
+  "repository": "https://github.com/NickyVault/Nicky",
+  "license": "MIT",
+  "keywords": [
+    "nicky",
+    "payments",
+    "crypto",
+    "non-custodial",
+    "mcp"
+  ]
+}

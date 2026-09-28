@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "nicky-public": {
+      "type": "http",
+      "url": "https://api-public.pay.nicky.me/mcp-public/"
+    },
+    "nicky": {
+      "type": "http",
+      "url": "https://api-public.pay.nicky.me/mcp/"
+    }
+  }
+}
