@@ -147,13 +147,18 @@ public tools are exposed alongside `SearchNicks` (a public user-search tool).
   Tools: `GetProfile`, `AgreePrivacyPolicy`, `UpdateProfile`, `GetAllNicks`, `AddNicks`, `GetBalances`,
   `GetAcceptedAssets`, `GetUserAssetConnections`, `GetDepositAddress`, `GetConversionQuote`,
   `GetUnusedConversionQuote`, `CreatePaymentRequest`, `GetPaymentRequests`, `GetPaymentRequestById`,
-  `GetPaymentRequestByShortId`, `CancelPaymentRequest`, `FinishPaymentRequest`, `GetPaymentOrders`,
+  `GetPaymentRequestByShortId`, `CancelPaymentRequest`, `FinishPaymentRequest`,
+  `ResendPaymentRequestEmail`, `GetPaymentOrders`,
   `GetPaymentOrderById`, `GetPaymentOrdersByBillShortId`, `GetCreditBalance`,
   `GetCreditBalanceForSubAccount`, `ListCreditTransfers`, `TransferCredits`, `GetAllBillingGroups`,
   `ListSubAccounts`, `UnlinkSubAccount`, `CreateSubAccount`, `CreateWebHook`, `ListWebHooks`,
   `DeleteWebHook`, `Echo`, plus all of the public tools above. `GetPaymentReports` also exists as a
   deprecated alias of `GetPaymentOrders` — kept for backward compatibility only; use
   `GetPaymentOrders` for new integrations.
+
+All private payment-request tools (read, create, cancel, finish, resend) only operate on payment
+requests owned by the authenticated caller — calling one with another user's short ID returns an
+authorization error, never that other user's data.
 - **Server card:** https://api-public.pay.nicky.me/.well-known/mcp/server-card.json
 
 **Available MCP tools (public):**
@@ -205,6 +210,7 @@ best-effort guess if you state which one you picked.
 | "Show my accounts" | `ListSubAccounts` vs. `GetAllBillingGroups` (billing groups, not accounts) | Ask which they mean if unclear from context |
 | "Set up a webhook"/"add a webhook" | `CreateWebHook` | Confirm the target URL and event type explicitly before calling; never infer a URL from earlier context |
 | "Update my profile" | `UpdateProfile` vs. `AddNicks` (adding a nick is not the same as editing profile fields) | Confirm which fields are being changed vs. which nick is being added |
+| "Resend the payment request" / "email them again" | `ResendPaymentRequestEmail` (resends the existing request notification) vs. `CreatePaymentRequest` (makes a new one) | Confirm the request already exists and just needs re-notifying, rather than creating a duplicate |
 
 **Hard rule:** any tool that creates, cancels, finishes, deletes, unlinks, or transfers something
 requires an explicit confirmation turn stating exactly what will happen, in plain language, before
